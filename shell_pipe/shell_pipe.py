@@ -46,7 +46,7 @@ def run_pipes(instance):
         shell_begin_index:
         shell_end_index + len(instance.settings['SHELL_END'])
         ],
-        output
+        "<div class=\"shell-pipe\"><p class=\"code\">%s</p><p        class=\"output\">%s</p>"% (code_str, output)
     )
 
 
