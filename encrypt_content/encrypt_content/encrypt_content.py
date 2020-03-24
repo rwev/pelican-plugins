@@ -18,12 +18,12 @@ from pelican import signals, generators
 from pelican.utils import pelican_open
 
 JS_LIBRARIES = [
-    '//cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/core.js',
-    '//cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/enc-base64.js',
-    '//cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/cipher-core.js',
-    '//cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/pad-nopadding.js',
-    '//cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/md5.js',
-    '//cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/components/aes.js'
+    '/assets/javascript/dependencies/crypto-js/core.js',
+    '/assets/javascript/dependencies/crypto-js/enc-base64.js',
+    '/assets/javascript/dependencies/crypto-js/cipher-core.js',
+    '/assets/javascript/dependencies/crypto-js/pad-nopadding.js',
+    '/assets/javascript/dependencies/crypto-js/md5.js',
+    '/assets/javascript/dependencies/crypto-js/aes.js'
 ]
 
 PLUGIN_DIR = os.path.dirname(os.path.realpath(__file__))
