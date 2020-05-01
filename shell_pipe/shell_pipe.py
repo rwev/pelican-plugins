@@ -1,5 +1,5 @@
 import subprocess
-
+from logging import warning
 from pelican import signals
 from pelican.generators import ArticlesGenerator, PagesGenerator
 
@@ -39,15 +39,19 @@ def run_pipes(instance):
     if not len(code_str):
         return
 
-    output = subprocess.check_output(code_str, shell=True).decode('utf-8')
+    try:
+        output = subprocess.check_output(code_str, shell=True).decode('utf-8')
+        instance._content = content.replace(
+            content[
+            shell_begin_index:
+            shell_end_index + len(instance.settings['SHELL_END'])
+            ],
+            "<div class=\"shell-pipe\"><p class=\"code\">%s</p><p        class=\"output\">%s</p>"% (code_str, output)
+        )
+    except Exception as e:
+        warning('shell_pipe plugin: command failed (%s). ', e)
 
-    instance._content = content.replace(
-        content[
-        shell_begin_index:
-        shell_end_index + len(instance.settings['SHELL_END'])
-        ],
-        "<div class=\"shell-pipe\"><p class=\"code\">%s</p><p        class=\"output\">%s</p>"% (code_str, output)
-    )
+
 
 
 def run_plugin(generators):
